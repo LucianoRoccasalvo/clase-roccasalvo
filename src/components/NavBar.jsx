@@ -1,41 +1,137 @@
-import React from 'react'
-import { Button, Navbar, Container, Nav, FormControl, Form, } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import CartWidget from './CartWidget';
-
-<CartWidget/>
-
-function NavBar() {
-  return ( 
-    <Navbar bg="light" expand="lg">
-    <Container fluid>
-    <Navbar.Brand href="#">Resistenza Rossa</Navbar.Brand>
-    <Navbar.Toggle aria-controls="navbarScroll" />
-    <Navbar.Collapse id="navbarScroll">
-      <Nav
-        className="me-auto my-2 my-lg-0"
-        style={{ maxHeight: '100px' }}
-        navbarScroll
-      >
-        <Nav.Link href="#action1">Inicio</Nav.Link>
-        <Nav.Link href="#action2">Coleccion</Nav.Link>
-        <Nav.Link href="#action3">Contacto</Nav.Link>
-      </Nav>
-      <Form className="d-flex">
-        <FormControl
-          type="search"
-          placeholder=""
-          className="me-2"
-          aria-label="Buscar"
-        />
-        <Button variant="outline-success">Buscar</Button>
-      </Form>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-)
-}
-
-export default NavBar
-
-
+  import * as React from 'react';
+  import AppBar from '@mui/material/AppBar';
+  import Box from '@mui/material/Box';
+  import Toolbar from '@mui/material/Toolbar';
+  import IconButton from '@mui/material/IconButton';
+  import Typography from '@mui/material/Typography';
+  import Menu from '@mui/material/Menu';
+  import MenuIcon from '@mui/icons-material/Menu';
+  import Container from '@mui/material/Container';
+  import Avatar from '@mui/material/Avatar';
+  import Button from '@mui/material/Button';
+  import Tooltip from '@mui/material/Tooltip';
+  import MenuItem from '@mui/material/MenuItem';
+  import AdbIcon from '@mui/icons-material/Adb';
+  import CartWidget from './CartWidget';
+  
+  const pages = ['Products', 'Pricing', 'Blog'];
+  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+  
+  const NavBar = () => {
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
+  
+    const handleOpenNavMenu = (event) => {
+      setAnchorElNav(event.currentTarget);
+    };
+    const handleOpenUserMenu = (event) => {
+      setAnchorElUser(event.currentTarget);
+    };
+  
+    const handleCloseNavMenu = () => {
+      setAnchorElNav(null);
+    };
+  
+    const handleCloseUserMenu = () => {
+      setAnchorElUser(null);
+    };
+  
+    return (
+      <AppBar position="static">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              Resistenza Rossa
+            </Typography>
+  
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: 'block', md: 'none' },
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href=""
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              LOGO
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page}
+                </Button>
+              ))}
+            </Box>
+  
+            <Box sx={{ flexGrow: 0 }}>
+                  <CartWidget items= {4}/>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    );
+  };
+  export default NavBar;
