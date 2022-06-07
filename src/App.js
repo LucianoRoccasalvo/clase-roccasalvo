@@ -13,8 +13,8 @@
     return (
         <div className="App">
         <NavBar />
-        <ItemListContainer greeting={'Saludo desde ItemListContainer'}/>
-        <ItemCount stock={1} max={5} onAdd={onAdd}/>
+        <ItemListContainer/>
+        <ItemCount inicial={1} max={5} onAdd={onAdd}/>
         </div>
     );
   }

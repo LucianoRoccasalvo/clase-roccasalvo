@@ -1,8 +1,8 @@
     import React, { useState} from 'react';
     
-    function ItemCount({stock, max, onAdd}) {
+    function ItemCount({inicial, max, onAdd}) {
         
-        const [count, setCount] = useState(stock);
+        const [count, setCount] = useState(inicial);
         
         const sumar = () => {
             if (count < max) {
@@ -12,7 +12,7 @@
         }
         
         const restar = () => {
-            count > stock ? setCount(count - 1) : alert('el minimo es 1')}
+            count > inicial ? setCount(count - 1) : alert('el minimo es 1')}
     
 
     return (
