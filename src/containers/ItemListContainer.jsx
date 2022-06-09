@@ -19,7 +19,7 @@
     });
 
 
-  pedido.then (res => setRopa(ropa));
+  pedido.then (res => setRopa(res));
   pedido.catch (error => console.log ("error:",error));
   pedido.finally(() => { console.log('fin')});
 

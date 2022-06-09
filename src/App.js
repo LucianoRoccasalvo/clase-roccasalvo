@@ -3,6 +3,7 @@
   import ItemListContainer from "./containers/ItemListContainer";
   import ItemCount from './components/ItemCount.jsx';
   import 'bootstrap/dist/css/bootstrap.min.css';
+  import ItemDetailContainer from "./containers/ItemDetailContainer";
 
   function App() {
 
@@ -14,7 +15,9 @@
         <div className="App">
         <NavBar />
         <ItemListContainer/>
+        <ItemDetailContainer/>
         <ItemCount inicial={1} max={5} onAdd={onAdd}/>
+
         </div>
     );
   }
