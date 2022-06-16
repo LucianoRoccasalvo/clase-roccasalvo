@@ -8,7 +8,7 @@ const Item = ({ropa}) => {
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={pictureUrl} />
         <Card.Body>
-          <Card.Title>{id}{title}</Card.Title>
+          <Card.Title>{title}</Card.Title>
           <Card.Text>
             {description}
             {price}
