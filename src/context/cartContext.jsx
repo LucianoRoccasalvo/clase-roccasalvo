@@ -14,7 +14,7 @@ const MyProvider = ({ children }) => {
 
 
     const addItem = (item, qty) => {
-        const newItem = {
+        const newItem = { 
             ...item,
             qty
         }
@@ -27,6 +27,7 @@ const MyProvider = ({ children }) => {
         } else {
             setCart([...cart], newItem)
         }
+    }
 
         const deleteItem = (id) => {
             return setCart(cart.filter(x => x.id !== id));
@@ -41,14 +42,13 @@ const MyProvider = ({ children }) => {
         }
 
         const getItemPrice = () => {
-            return cart.reduce((acc, x) => acc + x.price * x.qty, 0);
+            return cart.reduce((acc, x) => acc + x.qty * x.price , 0);
         }
 
 
         return <Provider value={{ cart, isInCart, addItem, deleteItem, emptyCart, getItemQty, getItemPrice }}>{children} </Provider>
 
     }
-}
 
     export default MyProvider ;
 
