@@ -1,21 +1,27 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
+import './MyComponent/MyComponent.css'
+import ItemCount from './ItemCount'
 
-const Item = ({ropa}) => {
-  const {id, title, description, price, pictureUrl } = ropa
+
+const Item = ({ ropa }) => {
+  const { id, title, description, price, pictureUrl } = ropa
 
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={pictureUrl} />
-        <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>
-            {description}
-            {price}
-          </Card.Text>
-          <Button variant="primary">Agregar</Button>
-        </Card.Body>
+    <div className='bordeItem'>
+    <Card className='borde' border="danger" style={{ width: '18rem' }} sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+      <Card.Header>{title}</Card.Header>
+      <Card.Body>
+        <Card.Img variant="top" src={pictureUrl} />
+        <Card.Title>{description}</Card.Title>
+        <Card.Text>
+          {description}
+          ${price}
+        </Card.Text>
+        <ItemCount/>
+      </Card.Body>
     </Card>
+    </div>
   )
 }
 

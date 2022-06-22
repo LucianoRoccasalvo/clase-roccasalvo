@@ -1,0 +1,24 @@
+.borde {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+      
+  }
+  
+  .navBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  
+  }
+
+  .bordeItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    margin: auto;
+  }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function ItemCount({ qty, setQty, stock, onAdd }) {
 
@@ -17,10 +17,10 @@ function ItemCount({ qty, setQty, stock, onAdd }) {
     return (
         <>
             <div className="item-count">
-                <button className={'btn ${qty > 1 ? "btn-sucess" : "btn-danger"}'} onClick={handleMinus}>-</button>
-                    <span>{qty}</span>
-                <button className={'btn ${qty < stock ? "btn-sucess" : "btn-danger"}'} onClick={handlePlus}>+</button>
-                <button className='btn btn-primary' onClick={() => {onAdd()}}>Agregar al carrito</button>
+                <h2>{qty}</h2>
+                <button className='btn ${qty > 1 ? "btn-sucess" : "btn-danger"' onClick={handleMinus}>-</button>
+                <button className='btn ${qty < stock ? "btn-sucess" : "btn-danger"' onClick={handlePlus}>+</button>
+                <button className='btn btn-primary' onClick={() => {onAdd(qty)}}>Agregar al carrito</button>
             </div>
         </>
     );

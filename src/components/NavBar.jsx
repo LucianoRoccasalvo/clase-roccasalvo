@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container, Nav, Navbar} from 'react-bootstrap'
 import CartWidget from "./CartWidget";
+import './MyComponent/MyComponent.css'
 
 
 export default function NavBar() {
   return (
-    <div>
+    <div className='navBar'>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
           <Navbar.Brand href="/">Resistenza Rossa</Navbar.Brand>
