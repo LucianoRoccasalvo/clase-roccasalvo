@@ -9,11 +9,11 @@ function CartWidget() {
   const { getItemQty } = useContext(CartContext);
   return (
     <>
-    <div>
-      <Badge badgeContent={getItemQty()} color='primary'>
-        <AiOutlineShoppingCart />
-      </Badge>
-    </div>
+      <div>
+        <Badge {...getItemQty()} color='primary'>
+          <AiOutlineShoppingCart />
+        </Badge>
+      </div>
     </>
   )
 }

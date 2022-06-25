@@ -8,9 +8,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Contacto from "./components/Contacto";
 import MyProvider from "./context/CartContext";
+import "../src/components/MyComponent/MyComponent.css";
+import ItemCount from "./components/ItemCount";
+
 
 
 export default function App() {
+
+  const onAdd = (count) => {
+
+
+  };
+
   return (
     <>
       <div className="container">

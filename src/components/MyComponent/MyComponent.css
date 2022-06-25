@@ -1,24 +1,43 @@
 .borde {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25px;
-      
-  }
-  
-  .navBar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-  
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
 
-  .bordeItem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25px;
-    flex-wrap: wrap;
-    margin: auto;
-  }
+.bordeItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.header-bg {
+  background: ffc8dd;
+}
+
+.header .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+.cardImage {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+
+}
+
+.link {
+  color: red;
+}
+.link:hover {
+   color: white;
+}

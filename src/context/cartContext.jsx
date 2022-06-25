@@ -9,7 +9,7 @@ const MyProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
     const isInCart = (id) => {
-        return cart.some(x => x.id === id);
+        return cart.findIndex(item => item.id === id);
     }
 
 
@@ -19,7 +19,7 @@ const MyProvider = ({ children }) => {
             qty
         }
         if (isInCart(newItem.id)) {
-            const findProduct = cart.find(x => x.id === newItem.id);
+            const findProduct = cart.find(item => item.id === newItem.id);
             const productIndex = cart.indexOf(findProduct);
             const auxCart = [...cart];
             auxCart[productIndex].qty += qty;
@@ -30,7 +30,7 @@ const MyProvider = ({ children }) => {
     }
 
         const deleteItem = (id) => {
-            return setCart(cart.filter(x => x.id !== id));
+            return setCart(cart.filter(item => item.id !== id));
         }
 
         const emptyCart = () => {
@@ -46,7 +46,7 @@ const MyProvider = ({ children }) => {
         }
 
 
-        return <Provider value={{ cart, isInCart, addItem, deleteItem, emptyCart, getItemQty, getItemPrice }}>{children} </Provider>
+        return  <Provider value={{ cart, isInCart, addItem, deleteItem, emptyCart, getItemQty, getItemPrice }}>{children} </Provider>
 
     }
 
