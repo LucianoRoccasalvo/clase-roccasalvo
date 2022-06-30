@@ -9,10 +9,10 @@ export default function ItemDetailContainer() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [accesorio, setAccesorio] = useState([])
+  const [detalle, setDetalle] = useState([])
 
   useEffect(() => {
-    setAccesorio({});
+    setDetalle({});
     setLoading(true);
     setError(false);
 
@@ -26,7 +26,7 @@ export default function ItemDetailContainer() {
       }, 2000);
     });
 
-    nuevoPedido.then(res => setAccesorio(res));
+    nuevoPedido.then(res => setDetalle(res));
     nuevoPedido.catch(error => setError(error));
     nuevoPedido.finally(() => { setLoading(false) });
 
@@ -37,7 +37,7 @@ export default function ItemDetailContainer() {
       <div> {loading && 'Cargando..'} </div>
       <div> {error && 'Error en el pago'} </div>
       <div>
-        <ItemDetail accesorio={accesorio} />
+        <ItemDetail detalle={detalle} />
       </div>
     </>
   )

@@ -1,54 +1,52 @@
-import { createContext,useState } from "react";     
+import { createContext, useState } from "react";
 
-export const CartContext = createContext();
+export const MyProvider = createContext();
 
-const { Provider } = CartContext;
-
-const MyProvider = ({ children }) => {
+export default function CartContext ({ children }) {
 
     const [cart, setCart] = useState([]);
 
     const isInCart = (id) => {
-        return cart.findIndex(item => item.id === id);
+        return cart.some((x) => x.id === id);
     }
 
 
-    const addItem = (item, qty) => {
-        const newItem = { 
+    const addItem = (item, count) => {
+        const newItem = {
             ...item,
-            qty
+            count
         }
         if (isInCart(newItem.id)) {
-            const findProduct = cart.find(item => item.id === newItem.id);
+            const findProduct = cart.find((x) => x.id === newItem.id);
             const productIndex = cart.indexOf(findProduct);
             const auxCart = [...cart];
-            auxCart[productIndex].qty += qty;
+            auxCart[productIndex].count += count;
             setCart(auxCart);
         } else {
             setCart([...cart], newItem)
         }
     }
 
-        const deleteItem = (id) => {
-            return setCart(cart.filter(item => item.id !== id));
-        }
-
-        const emptyCart = () => {
-            setCart([]);
-        }
-
-        const getItemQty = () => {
-            return cart.reduce((acc, x) => acc + x.qty, 0);
-        }
-
-        const getItemPrice = () => {
-            return cart.reduce((acc, x) => acc + x.qty * x.price , 0);
-        }
-
-
-        return  <Provider value={{ cart, isInCart, addItem, deleteItem, emptyCart, getItemQty, getItemPrice }}>{children} </Provider>
-
+    const deleteItem = (id) => {
+        return setCart(cart.filter(x => x.id !== id));
     }
 
-    export default MyProvider ;
+    const emptyCart = () => {
+        setCart([]);
+    }
+
+    const getItemCount = () => {
+        return cart.reduce((acc, x) => acc + x.count, 0);
+    }
+
+    const getItemPrice = () => {
+        return cart.reduce((acc, x) => acc + x.count * x.price, 0);
+    }
+
+
+    return <MyProvider.Provider value={{ cart, isInCart, addItem, deleteItem, emptyCart, getItemCount, getItemPrice }}>{children} </MyProvider.Provider>
+
+}
+
+
 

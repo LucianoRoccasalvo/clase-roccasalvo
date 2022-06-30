@@ -1,16 +1,16 @@
 import React from 'react';
-import { CartContext } from '../context/CartContext';
+import { MyProvider } from '../context/CartContext';
 import { useContext } from 'react';
 import { Badge } from 'react-bootstrap';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 function CartWidget() {
 
-  const { getItemQty } = useContext(CartContext);
+  const { getItemCount } = useContext(MyProvider);
   return (
     <>
       <div>
-        <Badge {...getItemQty()} color='primary'>
+        <Badge {...getItemCount()} color='primary'>
           <AiOutlineShoppingCart />
         </Badge>
       </div>

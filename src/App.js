@@ -7,24 +7,16 @@ import ItemDetailContainer from "./containers/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Contacto from "./components/Contacto";
-import MyProvider from "./context/CartContext";
+import CartContext from "./context/CartContext";
 import "../src/components/MyComponent/MyComponent.css";
-import ItemCount from "./components/ItemCount";
-
-
+import Cart from "./components/Cart";
 
 export default function App() {
-
-  const onAdd = (count) => {
-
-
-  };
-
   return (
     <>
       <div className="container">
-        <BrowserRouter>
-          <MyProvider>
+        <CartContext>
+          <BrowserRouter>
             <NavBar />
             <Routes>
               <Route path="/" element={<ItemListContainer />} />
@@ -32,9 +24,10 @@ export default function App() {
               <Route path="/item/:id" element={<ItemDetailContainer />} />
               <Route path="/home" element={<Home />} />
               <Route path="/contacto" element={<Contacto />} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
-          </MyProvider>
-        </BrowserRouter>
+          </BrowserRouter>
+        </CartContext>
       </div>
     </>
   );
