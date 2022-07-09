@@ -1,8 +1,8 @@
 import './MyComponent/MyComponent.css';
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { MyProvider } from '../context/CartContext'
-import { useContext } from 'react';
+
 
 
 function ItemCount({ stock, inicial, detalle }) {

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react'
 import { Container, Nav, Navbar} from 'react-bootstrap'
 import CartWidget from "./CartWidget";
 import './MyComponent/MyComponent.css'

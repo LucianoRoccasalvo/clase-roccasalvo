@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# Clothing Ecommerce
+
+Project for coder, where an error did not allow me to finish it, in the detail of the item it does not show the amount that you want to add to the cart, therefore, the cart does not add items.
+React-bootstrap is used, in the cards, navbar.
+Thanks.
+Roccasalvo Luciano.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
