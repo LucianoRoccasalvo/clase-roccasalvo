@@ -9,7 +9,7 @@ function ItemCount({ stock, inicial, detalle }) {
 
     const [count, setCount] = useState(1)
     const { isInCart, addItem } = useContext(MyProvider)
-    
+
 
     const sumar = () => {
         if (count < stock)

@@ -1,35 +1,36 @@
 import React, { useState, useEffect } from 'react'
 import ItemList from '../components/ItemList';
 import { useParams } from 'react-router-dom';
-import { listado } from '../hooks/listadoItems';
+import { collection, getDoc, getFirestore, query, where } from 'firebase/firestore'
 
 
 export default function ItemListContainer() {
   const { id } = useParams();
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [ropa, setRopa] = useState([]);
+  const [result, setResult] = useState([]);
 
   useEffect(() => {
-    setRopa([]);
-    setLoading(true);
-    setError(false);
-
-    const pedido = new Promise((res, rej) => {
-      setTimeout(() => {
-        (!id) ? res(listado) : res(listado.filter(item => item.category === id));
-        rej(false);
-      }, 2000);
-    });
-
-
-    pedido.then(res => setRopa(res));
-    pedido.catch(error => setError(error));
-    pedido.finally(() => { setLoading(false); });
-
-
-
+    const db = getFirestore();
+    const productsCollection = collection(db, 'Productos');
+    if (id) {
+      const q = query(productsCollection, where('category', '==', id));
+      getDoc(q).then(snapshot => {
+        setResult(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      }).catch((error) => {
+        setError(error);
+      }).finally(() => {
+        setLoading(false);
+      });
+    } else {
+      getDoc(productsCollection).then(snapshot => {
+        setResult(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      }).catch((error) => {
+        setError(error);
+      }).finally(() => {
+        setLoading(false);
+      });
+    }
   }, [id]);
 
   return (
@@ -37,7 +38,7 @@ export default function ItemListContainer() {
       <div> {loading && 'Cargando..'} </div>
       <div> {error && 'Error en el pago'} </div>
       <div>
-        <ItemList ropa={ropa} />
+        <ItemList products={result} />
       </div>
     </>
   )

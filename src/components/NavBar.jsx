@@ -16,12 +16,12 @@ export default function NavBar() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/category/remeras">Remeras</Nav.Link>
-              <Nav.Link href="/category/pantalones">Pantalones</Nav.Link>
-              <Nav.Link href="/category/buzos">Buzos</Nav.Link>
-              <Nav.Link href="/category/camperas">Camperas</Nav.Link>
-              <Nav.Link href="/category/zapatos">Zapatos</Nav.Link>
-              <Nav.Link href="/item/accesorios">Accesorios</Nav.Link>
+              <Nav.Link href="/category/remeras">remeras</Nav.Link>
+              <Nav.Link href="/category/pantalones">pantalones</Nav.Link>
+              <Nav.Link href="/category/buzos">buzos</Nav.Link>
+              <Nav.Link href="/category/camperas">camperas</Nav.Link>
+              <Nav.Link href="/category/zapatos">zapatos</Nav.Link>
+              <Nav.Link href="/item/accesorios">accesorios</Nav.Link>
               <Nav.Link href="/cart"><CartWidget/></Nav.Link>
             </Nav>
           </Navbar.Collapse>

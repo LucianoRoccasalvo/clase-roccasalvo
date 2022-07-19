@@ -7,7 +7,7 @@ import './MyComponent/MyComponent.css';
 
 const ItemDetail = ({ detalle }) => {
 
-  const { id, title, description, price, pictureUrl, stock } = detalle;
+  const { title, description, price, pictureUrl, stock } = detalle;
 
 
 
